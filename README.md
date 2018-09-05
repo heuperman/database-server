@@ -8,13 +8,18 @@ A small API server that can store and return data.
 - Stores data in memory, but can easily be changed to use a database instead.
 
 ## Setup
+Clone the repo
+`$ npm install`
 
 ## Running tests
+To run all available tests type `$ npm test`
 
 ## Get started
-
-## List of commands:
+To run the server type `$ npm start`
 
 ## Process
+- Outlined project requirements in readme file
+- Wrote feature test for first requirements
+
 
 ## To do

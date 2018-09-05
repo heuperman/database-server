@@ -1,0 +1,34 @@
+{
+  "name": "database-server",
+  "version": "1.0.0",
+  "description": "Practice tech test to demonstrate my understanding of web technologies",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "nodemon ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heuperman/database-server.git"
+  },
+  "keywords": [
+    "API",
+    "javascript",
+    "server"
+  ],
+  "author": "Cornelis Heuperman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heuperman/database-server/issues"
+  },
+  "homepage": "https://github.com/heuperman/database-server#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.2.0",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.4"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
