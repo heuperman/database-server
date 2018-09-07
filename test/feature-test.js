@@ -6,9 +6,13 @@ chai.use(chaiHttp);
 
 const expect = chai.expect
 
+afterEach(() => {
+  server.close()
+})
+
 describe('/', () => {
   it('should be accessible', (done) => {
-    chai.request(server)
+    chai.request('http://localhost:4000')
         .get('/')
         .end((err, res) => {
           expect(err).to.be.null
