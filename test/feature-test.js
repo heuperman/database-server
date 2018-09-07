@@ -6,18 +6,22 @@ chai.use(chaiHttp);
 
 const expect = chai.expect
 
+beforeEach(() => {
+  server.listen(4000)
+})
+
 afterEach(() => {
   server.close()
 })
 
-describe('/', () => {
-  it('should be accessible', (done) => {
+describe('/set', () => {
+  it('should accept a key and value pair', (done) => {
     chai.request('http://localhost:4000')
-        .get('/')
+        .get('/set?testkey=testvalue')
         .end((err, res) => {
-          expect(err).to.be.null
           expect(res).to.have.status(200)
+          expect(res.text).to.equal('key and value pair accepted')
           done()
-      })
-   })
+        })
+  })
 })
