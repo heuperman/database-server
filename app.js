@@ -1,12 +1,7 @@
 const express = require('express')
 const app = express()
+const controller = require('./src/controller')
 
-app.get('/set',(req, res) => {
-  if(req.query.testkey === 'testvalue') {
-    res.send('key and value pair accepted')
-  } else {
-    throw new Error()
-  }
-})
+app.use('/', controller)
 
 module.exports = app

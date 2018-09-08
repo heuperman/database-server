@@ -39,7 +39,15 @@ To help me build an app that meets the second requirement, I wrote a test that m
 - **Wrote code to pass the second feature test**
 Consisted of slightly changing the routing and telling the server to return some text. Changing the routing caused the first feature test to fail. As '/' is not intended to be accessed and the second feature test requires '/set' to be accessible I remove the first test.
 
-- **Wrote feature test to check unhappy path when accessing /set**
+- **Wrote feature test to check unhappy path when accessing '/set'**
 Wrote a test to help me make sure user would receive an error on entering invalid data.
+
+- **Wrote code to return error when passing invalid data**
+Added code to throw a generic error when receiving anything other than the expected test data on '/set'.
+
+- **Wrote feature test to check if '/get' is accessible**
+
+- **Added '/get' route to the app**
+Wrote the code to allow access to '/get'. As there are now multiple routes I felt it was in order to extract this behaviour to a separate section. Told the app to use a controller for routing and moved the routes and responses to this controller.
 
 ## To do
