@@ -48,6 +48,12 @@ Added code to throw a generic error when receiving anything other than the expec
 - **Wrote feature test to check if '/get' is accessible**
 
 - **Added '/get' route to the app**
-Wrote the code to allow access to '/get'. As there are now multiple routes I felt it was in order to extract this behaviour to a separate section. Told the app to use a controller for routing and moved the routes and responses to this controller.
+Wrote the code to allow access to '/get'. As there are now multiple routes I felt it was in order to extract this behaviour to a separate section. Told the app to use a controller for routing and moved the routes and responses to this controller. Also added a response string to the invalid params error to give some helpful guidance on the expected query string format.
+
+- **Wrote feature test for final and most crucial requirement**
+Test first passes a key value pair as a query string to '/set' and then passes the key and checks if the server returned the correct value. The trickiest part of this was making sure the first request would complete before the second one was made which I did by passing the second request as a callback.
+
+- **Wrote the code to pass this feature test**
+Added a hash to store the passed key value pairs in and a check to see if the query string consists of a single pair as required. Getting the key and value from the query when neither are known required some research but I found a pretty elegant solution that introduced me to a whole new feature of Javascript: the Object.
 
 ## To do

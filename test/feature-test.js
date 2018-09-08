@@ -6,6 +6,8 @@ chai.use(chaiHttp);
 
 const expect = chai.expect
 
+const host = 'http://localhost:4000'
+
 beforeEach(() => {
   server.listen(4000)
 })
@@ -16,7 +18,7 @@ afterEach(() => {
 
 describe('/set', () => {
   it('should accept a key and value pair', (done) => {
-    chai.request('http://localhost:4000')
+    chai.request(host)
         .get('/set?testkey=testvalue')
         .end((err, res) => {
           expect(res).to.have.status(200)
@@ -28,7 +30,7 @@ describe('/set', () => {
 
 describe('/set', () => {
   it('should return an error when passed invalid query string', (done) => {
-    chai.request('http://localhost:4000')
+    chai.request(host)
         .get('/set?invaliddata')
         .end((err, res) => {
           expect(res).to.have.status(500)
@@ -38,13 +40,20 @@ describe('/set', () => {
 })
 
 describe('/get', () => {
-  it('should be accessible', (done) => {
-    chai.request('http://localhost:4000')
-        .get('/get')
+  it('should return a previously saved value when passed correct key', (done) => {
+    chai.request(host)
+        .get('/set')
+        .query({hello: 'world'})
         .end((err, res) => {
-          expect(err).to.be.null
-          expect(res).to.have.status(200)
-          done()
+          chai.request(host)
+              .get('/get')
+              .query({key: 'hello'})
+              .end((err, res) => {
+                expect(res).to.have.status(200)
+                expect(res).to.be.json
+                expect(res.body).to.equal('world')
+                done()
+              })
         })
-   })
+  })
 })
