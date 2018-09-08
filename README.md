@@ -37,6 +37,9 @@ Consisted mainly of telling Express to run a server on port 4000 and letting it 
 To help me build an app that meets the second requirement, I wrote a test that made a GET request with params and expected a response that confirmed they had been received.
 
 - **Wrote code to pass the second feature test**
-Consisted of slightly changing the route and telling the server to return some text. Changing the rout caused the first feature test to fail. As '/' is not intended to be accessed and the second feature test requires '/set' to be accessible I remove the first test.
+Consisted of slightly changing the routing and telling the server to return some text. Changing the routing caused the first feature test to fail. As '/' is not intended to be accessed and the second feature test requires '/set' to be accessible I remove the first test.
+
+- **Wrote feature test to check unhappy path when accessing /set**
+Wrote a test to help me make sure user would receive an error on entering invalid data.
 
 ## To do

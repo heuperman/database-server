@@ -25,3 +25,14 @@ describe('/set', () => {
         })
   })
 })
+
+describe('/set', () => {
+  it('should return an error when passed invalid query string', (done) => {
+    chai.request('http://localhost:4000')
+        .get('/set?invaliddata')
+        .end((err, res) => {
+          expect(res).to.have.status(500)
+          done()
+        })
+  })
+})
